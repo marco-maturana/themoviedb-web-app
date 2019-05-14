@@ -81,4 +81,3 @@ export default {
   .movie-title
     height: 50px
 </style>
-
