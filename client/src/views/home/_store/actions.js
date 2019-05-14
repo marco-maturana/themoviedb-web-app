@@ -4,6 +4,14 @@ export const details = async ({ state }, id) => {
 };
 
 export const search = async ({ state }) => {
+  if (state.query) {
+    const response = await axios.get("/movie/search", {
+      params: { page: state.page, query: state.query }
+    });
+
+    state.movies = response.data.movies;
+    state.pages = response.data.totalPages;
+  } else upcoming({ state });
 };
 
 export const upcoming = async ({ state }) => {

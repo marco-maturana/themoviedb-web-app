@@ -3,7 +3,7 @@
     :length="pages"
     :total-visible="5"
     v-model="page"
-    @input="upcoming"
+    @input="search"
   ></v-pagination>
 </template>
 
@@ -27,7 +27,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["upcoming"])
+    ...mapActions(["search"])
   }
 };
 </script>

@@ -1,5 +1,14 @@
 <template>
   <v-layout justify-space-around fluid wrap>
+    <v-flex xs12 pa-3>
+      <v-text-field
+        clearable
+        outline
+        label="Search movie by name"
+        append-icon="search"
+        v-model.lazy="query"
+      ></v-text-field>
+    </v-flex>
     <v-flex xs12>
       <v-layout justify-center>
         <paginate/>
@@ -38,10 +47,23 @@ export default {
     Paginate
   },
   computed: {
-    ...mapState(["movies"])
+    ...mapState(["movies"]),
+    query: {
+      get () {
+        return this.$store.state[STORE_KEY].query;
+      },
+      set (value) {
+        this.$store.commit(`${STORE_KEY}/query`, value);
+      }
+    }
+  },
+  watch: {
+    query () {
+      this.search();
+    }
   },
   methods: {
-    ...mapActions(["upcoming"])
+    ...mapActions(["search", "upcoming"])
   },
   beforeCreate () {
     this.$registerStore({ name: STORE_KEY, module: store });
