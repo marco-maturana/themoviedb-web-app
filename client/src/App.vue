@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <title>{{ title }}</title>
     <v-content>
       <router-view/>
     </v-content>
@@ -9,7 +10,12 @@
 <script>
 
 export default {
-  name: "App"
+  name: "App",
+  data () {
+    return {
+      title: process.env.VUE_APP_TITLE
+    };
+  }
 };
 </script>
 
