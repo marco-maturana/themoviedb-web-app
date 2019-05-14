@@ -6,6 +6,7 @@
         outline
         label="Search movie by name"
         append-icon="search"
+        :loading="loading"
         v-model.lazy="query"
       ></v-text-field>
     </v-flex>
@@ -47,7 +48,7 @@ export default {
     Paginate
   },
   computed: {
-    ...mapState(["movies"]),
+    ...mapState(["loading", "movies"]),
     query: {
       get () {
         return this.$store.state[STORE_KEY].query;
