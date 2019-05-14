@@ -20,6 +20,19 @@
         </v-layout>
       </v-flex>
       <v-flex xs12>
+        <div class="movie-genres">
+          <v-chip
+            small
+            label
+            color="secondary"
+            text-color="white"
+            v-for="genre in genres" :key="genre"
+          >
+            {{genre}}
+          </v-chip>
+        </div>
+      </v-flex>
+      <v-flex xs12>
         <v-layout align-end justify-end row fill-height>
           <v-btn flat color="primary">
             <v-icon left dark>remove_red_eye</v-icon>
@@ -63,4 +76,7 @@ export default {
 
     .movie-title
       height: 65px
+
+    .movie-genres
+      height: 90px
 </style>
