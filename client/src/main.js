@@ -1,11 +1,15 @@
-import Vue from "vue";
+
 import "./plugins/vuetify";
-import App from "./App.vue";
+import "./registerServiceWorker";
+import registerStore from "@/plugins/registerStore";
 import router from "./router";
 import store from "./store";
-import "./registerServiceWorker";
+import App from "./App.vue";
+import Vue from "vue";
 
 Vue.config.productionTip = false;
+
+Vue.use(registerStore);
 
 new Vue({
   router,
