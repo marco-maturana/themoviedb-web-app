@@ -1,6 +1,6 @@
 {
-  "name": "client",
-  "short_name": "client",
+  "name": "TheMovieDB Web App",
+  "short_name": "TheMovieDB Web App",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
