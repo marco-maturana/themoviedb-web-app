@@ -24,6 +24,11 @@ describe("movie-controller", function () {
     expect(response.data.releaseDate).to.be.a("string");
     expect(response.data.title).to.be.a("string");
     expect(response.data.overview).to.be.a("string");
+    expect(response.data.genres).to.be.an("array");
+
+    response.data.genres.forEach((genre: any) => {
+      expect(genre).to.be.a("string");
+    });
   });
 
   it("search", async function () {
@@ -45,6 +50,11 @@ describe("movie-controller", function () {
     expect(response.data.movies[0].posterPath).to.be.a("string");
     expect(response.data.movies[0].releaseDate).to.be.a("string");
     expect(response.data.movies[0].title).to.be.a("string");
+    expect(response.data.movies[0].genres).to.be.an("array");
+
+    response.data.movies[0].genres.forEach((genre: any) => {
+      expect(genre).to.be.a("string");
+    });
   });
 
   it("upcoming", async function () {
@@ -62,5 +72,10 @@ describe("movie-controller", function () {
     expect(response.data.movies[0].posterPath).to.be.a("string");
     expect(response.data.movies[0].releaseDate).to.be.a("string");
     expect(response.data.movies[0].title).to.be.a("string");
+    expect(response.data.movies[0].genres).to.be.an("array");
+
+    response.data.movies[0].genres.forEach((genre: any) => {
+      expect(genre).to.be.a("string");
+    });
   });
 });

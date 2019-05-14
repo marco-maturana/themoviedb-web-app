@@ -51,7 +51,8 @@
   "_moduleAliases": {
     "@config": "dist/src/config",
     "@controllers": "dist/src/controllers",
-    "@core": "dist/src/core"
+    "@core": "dist/src/core",
+    "@helpers": "dist/src/helpers"
   },
   "author": "Marco Aurelio Maturana Silveira <marco.maturana.ro@gmail.com>",
   "license": "ISC"

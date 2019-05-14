@@ -1,3 +1,4 @@
+import MovieGenresHelper from "@helpers/movie-genres";
 import { Get, Route } from "@marcomaturana/express-decorators";
 import axios, { AxiosInstance } from "axios";
 import { Request, Response } from "express";
@@ -37,15 +38,16 @@ export class MoviesUpcomingController {
     };
   }
 
-  private filterMoviesList (responseData: any): any {
-    const movies = responseData.results.map((movie: any) => {
-      return {
+  private async filterMoviesList (responseData: any): Promise<any> {
+    const movies = await Promise.all(responseData.results.map(async (movie: any) => {
+      return Promise.resolve({
         id: movie.id,
+        genres: await MovieGenresHelper.getGenresNames(movie.genre_ids),
         posterPath: movie.poster_path,
         releaseDate: this.formatReleaseDate(movie.release_date),
         title: movie.title
-      };
-    });
+      });
+    }));
 
     return {
       movies,
@@ -66,12 +68,14 @@ export class MoviesUpcomingController {
 
       return res.json({
         id: response.data.id,
+        genres: response.data.genres.map((genre: any) => genre.name),
         overview: response.data.overview,
         posterPath: response.data.poster_path,
         releaseDate: this.formatReleaseDate(response.data.release_date),
         title: response.data.title
       });
     } catch (error) {
+      console.log(error);
       return res.json({ errors: "Error while getting the movie details!" });
     }
   }
@@ -91,7 +95,7 @@ export class MoviesUpcomingController {
         }
       });
 
-      return res.json(this.filterMoviesList(response.data));
+      return res.json(await this.filterMoviesList(response.data));
     } catch (error) {
       console.error(error);
       return res.json({ errors: "Error while getting the movies!" });
@@ -112,7 +116,7 @@ export class MoviesUpcomingController {
         }
       });
 
-      return res.json(this.filterMoviesList(response.data));
+      return res.json(await this.filterMoviesList(response.data));
     } catch (error) {
       console.error(error);
       return res.json({ errors: "Error while getting the movies!" });

@@ -17,6 +17,7 @@
       "@config/*": ["src/config/*"],
       "@controllers/*": ["src/controllers/*"],
       "@core/*": ["src/core/*"],
+      "@helpers/*": ["src/helpers/*"],
       "*": [
         "node_modules/*"
       ]
