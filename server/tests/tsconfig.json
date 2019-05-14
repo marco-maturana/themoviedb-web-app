@@ -1,0 +1,19 @@
+{
+  "extends": "../tsconfig",
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "../dist",
+    "paths": {
+      "@config/*": ["src/config/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@core/*": ["src/core/*"],
+      "*": [
+        "../node_modules/*"
+      ]
+    }
+  },
+  "include": [
+    "../src/**/*",
+    "../app.ts"
+  ]
+}
