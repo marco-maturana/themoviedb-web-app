@@ -1,0 +1,16 @@
+{
+  "name": "themoviedb-web-app",
+  "version": "1.0.0",
+  "description": "themoviedb-web-app",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marco-maturana/themoviedb-web-app.git"
+  },
+  "author": "Marco Aurelio Maturana Silveira <marco.maturana.ro@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marco-maturana/themoviedb-web-app/issues"
+  },
+  "homepage": "https://github.com/marco-maturana/themoviedb-web-app#readme"
+}
