@@ -34,7 +34,7 @@
       </v-flex>
       <v-flex xs12>
         <v-layout align-end justify-end row fill-height>
-          <v-btn flat color="primary">
+          <v-btn flat color="primary" :loading="loading" @click="details">
             <v-icon left dark>remove_red_eye</v-icon>
             More Info
           </v-btn>
@@ -45,6 +45,8 @@
 </template>
 
 <script>
+const STORE_KEY = "$_VIEWS_HOME";
+
 export default {
   name: "ViewsHomeComponentsMovieCard",
   props: {
@@ -65,14 +67,30 @@ export default {
       type: String,
       required: true
     }
+  },
+  data () {
+    return {
+      loading: false
+    };
+  },
+  methods: {
+    async details () {
+      this.loading = true;
+
+      try {
+        await this.$store.dispatch(`${STORE_KEY}/details`, this.id);
+      } finally {
+        this.loading = false;
+      }
+    }
   }
 };
 </script>
 
 <style lang="stylus" scoped>
-    .movie-title
-      height: 65px
+  .movie-title
+    height: 65px
 
-    .movie-genres
-      height: 90px
+  .movie-genres
+    height: 90px
 </style>

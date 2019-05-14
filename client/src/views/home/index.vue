@@ -29,12 +29,14 @@
         <paginate/>
       </v-layout>
     </v-flex>
+    <movie-dialog/>
   </v-layout>
 </template>
 
 <script>
 import store from "./_store";
 import MovieCard from "./_components/movie-card";
+import MovieDialog from "./_components/movie-dialog";
 import Paginate from "./_components/paginate";
 import { createNamespacedHelpers } from "vuex";
 
@@ -45,6 +47,7 @@ export default {
   name: "ViewsHome",
   components: {
     MovieCard,
+    MovieDialog,
     Paginate
   },
   computed: {
