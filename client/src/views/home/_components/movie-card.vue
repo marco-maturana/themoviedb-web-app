@@ -1,5 +1,5 @@
 <template>
-  <v-card class="views-home-components-movie-card">
+  <v-card>
     <v-layout align-start justify-start row fill-height wrap>
       <v-flex xs12>
         <v-layout align-center justify-center>
@@ -70,10 +70,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  .views-home-components-movie-card
-    .movie-image
-      height: 200px;
-
     .movie-title
       height: 65px
 

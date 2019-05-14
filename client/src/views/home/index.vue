@@ -74,3 +74,8 @@ export default {
   }
 };
 </script>
+
+<style lang="stylus">
+  .movie-image
+      height: 200px;
+</style>
