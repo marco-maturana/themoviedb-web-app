@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import LayoutsDefault from "@/layouts/default";
+import ViewsHome from "@/views/home";
 
 Vue.use(Router);
 
@@ -10,7 +11,11 @@ export default new Router({
   routes: [
     {
       path: "/",
-      component: LayoutsDefault
+      component: LayoutsDefault,
+      children: [{
+        path: "",
+        component: ViewsHome
+      }]
     }
   ]
 });
