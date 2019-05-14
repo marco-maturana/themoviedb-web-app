@@ -5,8 +5,8 @@
   "description": "themoviedb-web-app-client",
   "author": "Marco Aurelio Maturana Silveira <marco.maturana.ro@gmail.com>",
   "scripts": {
-    "dev": "vue-cli-service serve --host 0.0.0.0",
-    "build": "vue-cli-service build",
+    "dev": "yarn install && vue-cli-service serve --host 0.0.0.0",
+    "build": "yarn install && vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
