@@ -1,3 +1,7 @@
+export const dialog = (state, dialog) => {
+  state.dialog = dialog;
+};
+
 export const page = (state, page) => {
   state.page = page;
 };

@@ -1,6 +1,17 @@
 import axios from "axios";
 
 export const details = async ({ state }, id) => {
+  try {
+    const response = await axios.get(`/movie/details/${id}`, {
+      params: { page: state.page, query: state.query }
+    });
+
+    state.movie = response.data;
+
+    state.dialog = true;
+  } finally {
+    state.loading = false;
+  }
 };
 
 export const search = async ({ state }) => {
