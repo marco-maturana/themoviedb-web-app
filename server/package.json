@@ -1,7 +1,7 @@
 {
   "name": "themoviedb-web-app-server",
   "version": "1.0.0",
-  "description": "themoviedb-web-app-seerver",
+  "description": "themoviedb-web-app-server",
   "main": "dist/app.js",
   "scripts": {
     "dev": "yarn build && concurrently \"yarn watch-ts\" \"yarn watch-node\"",
