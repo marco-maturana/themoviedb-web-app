@@ -1,21 +1,5 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>open_in_new</v-icon>
-      </v-btn>
-    </v-toolbar>
-
     <v-content>
       <router-view/>
     </v-content>
@@ -25,11 +9,18 @@
 <script>
 
 export default {
-  name: "App",
-  data () {
-    return {
-      //
-    };
-  }
+  name: "App"
 };
 </script>
+
+<style lang="stylus">
+  ::-webkit-scrollbar-track
+    -webkit-box-shadow inset 0 0 6px rgba(0,0,0,0.3)
+    background-color #F5F5F5
+  ::-webkit-scrollbar
+    width: 7px;
+    height: 7px;
+    background-color #F5F5F5
+  ::-webkit-scrollbar-thumb
+    background-color #333131
+</style>
