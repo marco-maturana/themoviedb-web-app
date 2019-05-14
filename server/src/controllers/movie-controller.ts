@@ -42,7 +42,7 @@ export class MoviesUpcomingController {
       return {
         id: movie.id,
         posterPath: movie.poster_path,
-        releaseDate: moment(movie.release_date, "YYYY-MM-DD").format("dddd, MMMM Do YYYY"),
+        releaseDate: this.formatReleaseDate(movie.release_date),
         title: movie.title
       };
     });
@@ -51,6 +51,29 @@ export class MoviesUpcomingController {
       movies,
       totalPages: responseData.total_pages,
     };
+  }
+
+  private formatReleaseDate (releaseDate: string): string {
+    return moment(releaseDate, "YYYY-MM-DD").format("dddd, MMMM Do YYYY");
+  }
+
+  @Get("/details/:id")
+  async details (req: Request, res: Response) {
+    try {
+      const response = await this.axiosRequest.get(`/movie/${req.params.id}`, {
+        params: { api_key: process.env.TMDB_API_KEY }
+      });
+
+      return res.json({
+        id: response.data.id,
+        overview: response.data.overview,
+        posterPath: response.data.poster_path,
+        releaseDate: this.formatReleaseDate(response.data.release_date),
+        title: response.data.title
+      });
+    } catch (error) {
+      return res.json({ errors: "Error while getting the movie details!" });
+    }
   }
 
   @Get("/search")
