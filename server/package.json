@@ -9,7 +9,7 @@
     "build-test": "rm -rf dist && yarn install && tsc -p tests/tsconfig.json",
     "start": "node dist/app.js",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "test": "cross-env TS_NODE_PROJECT=tests/tsconfig.json&& yarn build-test && mocha --opts tests/mocha.opts",
+    "test": "yarn build-test && cross-env TS_NODE_PROJECT=tests/tsconfig.json&& mocha --opts tests/mocha.opts",
     "watch-node": "nodemon --delay 5 dist/app",
     "watch-ts": "tsc -w"
   },

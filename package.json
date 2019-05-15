@@ -10,7 +10,8 @@
     "dev": "concurrently \"yarn dev-server\" \"yarn dev-client\"",
     "dev-client": "cd client && yarn dev",
     "dev-server": "cd server && yarn dev",
-    "start": "cd server && yarn start"
+    "start": "cd server && yarn start",
+    "test": "cd server && yarn test"
   },
   "repository": {
     "type": "git",
