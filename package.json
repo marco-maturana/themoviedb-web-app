@@ -1,0 +1,29 @@
+{
+  "name": "themoviedb-web-app",
+  "version": "1.0.0",
+  "description": "themoviedb-web-app",
+  "main": "index.js",
+  "scripts": {
+    "build": "concurrently \"yarn build-server\" \"yarn build-client\"",
+    "build-client": "cd client && yarn build",
+    "build-server": "cd server && yarn build",
+    "dev": "concurrently \"yarn dev-server\" \"yarn dev-client\"",
+    "dev-client": "cd client && yarn dev",
+    "dev-server": "cd server && yarn dev",
+    "start": "cd server && yarn start",
+    "test": "cd server && yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marco-maturana/themoviedb-web-app.git"
+  },
+  "author": "Marco Aurelio Maturana Silveira <marco.maturana.ro@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marco-maturana/themoviedb-web-app/issues"
+  },
+  "homepage": "https://github.com/marco-maturana/themoviedb-web-app#readme",
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
